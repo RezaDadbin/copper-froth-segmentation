@@ -1,0 +1,5 @@
+-r base.txt
+# Source URL present in the original SAM notebook; historical commit unrecorded.
+git+https://github.com/facebookresearch/segment-anything.git
+segment-anything-hq
+# External model weights and exact MedSAM/RobustSAM/SAMUS code are not bundled.

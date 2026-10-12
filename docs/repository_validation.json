@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-12T22:52:11.977752+00:00",
+  "public_python_files_compiled": 91,
+  "public_notebooks": 0,
+  "historical_sources_exported_and_import_checked": 38,
+  "original_notebook_sources": 35,
+  "configs_checked": 8,
+  "script_help_checked": 13,
+  "relative_document_links_checked": 21,
+  "source_files_accounted_for": 237,
+  "archive_files_verified": 237,
+  "original_files_verified": 237,
+  "functional_tests_are_separate": true
+}

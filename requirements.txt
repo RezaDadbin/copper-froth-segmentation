@@ -1,0 +1,2 @@
+# Shared training, evaluation and rendering dependencies.
+-r requirements/base.txt

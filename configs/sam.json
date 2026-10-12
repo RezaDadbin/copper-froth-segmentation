@@ -1,0 +1,39 @@
+{
+  "description": "Source-derived starting configuration for a NEW run; not a recovered CSV-producing run specification.",
+  "model": {
+    "name": "sam",
+    "pretrained": false,
+    "variant": "vit_b",
+    "base_checkpoint": "weights/sam_vit_b_01ec64.pth"
+  },
+  "data": {
+    "image_size": null,
+    "normalize": false,
+    "center_crop": null
+  },
+  "training": {
+    "epochs": 10,
+    "batch_size": 1,
+    "lr": 1e-05,
+    "optimizer": "adam",
+    "loss": "bce_dice",
+    "weight_decay": 0.0,
+    "seed": 1337,
+    "num_workers": 0,
+    "accumulation_steps": 1,
+    "log_every": 25,
+    "selection_metric": "iou",
+    "fine_tune": "decoder_only",
+    "prompt_source": "full_image"
+  },
+  "inference": {
+    "threshold": 0.5,
+    "points_per_side": 32,
+    "pred_iou_thresh": 0.8,
+    "stability_score_thresh": 0.95,
+    "min_mask_region_area": 60,
+    "nms_iou_threshold": 0.4,
+    "crop_n_layers": 0,
+    "points_per_batch": 64
+  }
+}

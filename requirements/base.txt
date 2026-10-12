@@ -1,0 +1,10 @@
+# Import-derived dependencies; not a recovered training environment lock.
+numpy
+Pillow
+opencv-python
+matplotlib
+scipy
+tifffile
+tqdm
+torch>=2.2
+torchvision>=0.17

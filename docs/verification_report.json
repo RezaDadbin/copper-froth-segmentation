@@ -1,0 +1,355 @@
+{
+  "status": "passed_with_documented_optional_integrations",
+  "created_utc": "2026-10-12T22:54:23.455598+00:00",
+  "scope": "Python source conversion and linked paper-code workflow; no full experiment retraining",
+  "source_conversion": {
+    "original_notebooks": 35,
+    "original_python_files": 3,
+    "python_exports": 38,
+    "public_notebooks": 0,
+    "original_and_archive_files_verified": 237,
+    "unet_class_ast_matches_original": true
+  },
+  "repository_validation": {
+    "status": "passed",
+    "checked_utc": "2026-10-12T22:52:11.977752+00:00",
+    "public_python_files_compiled": 91,
+    "public_notebooks": 0,
+    "historical_sources_exported_and_import_checked": 38,
+    "original_notebook_sources": 35,
+    "configs_checked": 8,
+    "script_help_checked": 13,
+    "relative_document_links_checked": 21,
+    "source_files_accounted_for": 237,
+    "archive_files_verified": 237,
+    "original_files_verified": 237,
+    "functional_tests_are_separate": true
+  },
+  "functional_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "tests": 20,
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "pipeline_and_model_tests_repeated_after_metadata_changes": 4,
+    "coverage": [
+      "LabelMe polygon and circle",
+      "paired-file manifest and stale imagePath",
+      "binary masks and inverse crop coverage",
+      "analytic semantic and boundary metrics",
+      "U-Net forward/backward",
+      "real small official-SAM decoder gradients",
+      "synthetic train/predict/evaluate/render cycle",
+      "changed-annotation rejection",
+      "watershed threshold and LoG region-identity regressions",
+      "known phase/flow/block/fusion translations"
+    ]
+  },
+  "local_verification_environment": {
+    "python": "3.11.7",
+    "torch": "2.6.0",
+    "torchvision": "0.21.0",
+    "numpy": "1.26.4",
+    "opencv": "4.11.0",
+    "scipy": "1.16.2",
+    "scikit_image": "0.22.0",
+    "matplotlib": "3.8.0",
+    "new_packages_installed": false,
+    "GPU_tests_performed": false
+  },
+  "real_data_smoke": {
+    "real_samples": [
+      {
+        "image_name": "B50 (1).tiff",
+        "native_size": [
+          1080,
+          1440
+        ],
+        "annotation_foreground_pixels": 1479583,
+        "transforms": {
+          "unet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "sbsnet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "deeplabv3": {
+            "size": [
+              1024,
+              1024
+            ],
+            "binary": true
+          },
+          "sam": {
+            "size": [
+              1080,
+              1440
+            ],
+            "binary": true
+          }
+        }
+      },
+      {
+        "image_name": "F53 (10).tiff",
+        "native_size": [
+          1080,
+          1440
+        ],
+        "annotation_foreground_pixels": 1485510,
+        "transforms": {
+          "unet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "sbsnet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "deeplabv3": {
+            "size": [
+              1024,
+              1024
+            ],
+            "binary": true
+          },
+          "sam": {
+            "size": [
+              1080,
+              1440
+            ],
+            "binary": true
+          }
+        }
+      },
+      {
+        "image_name": "F53 (11).tiff",
+        "native_size": [
+          1080,
+          1440
+        ],
+        "annotation_foreground_pixels": 1479225,
+        "transforms": {
+          "unet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "sbsnet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "deeplabv3": {
+            "size": [
+              1024,
+              1024
+            ],
+            "binary": true
+          },
+          "sam": {
+            "size": [
+              1080,
+              1440
+            ],
+            "binary": true
+          }
+        }
+      },
+      {
+        "image_name": "p (1).tiff",
+        "native_size": [
+          1080,
+          1440
+        ],
+        "annotation_foreground_pixels": 1345412,
+        "transforms": {
+          "unet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "sbsnet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "deeplabv3": {
+            "size": [
+              1024,
+              1024
+            ],
+            "binary": true
+          },
+          "sam": {
+            "size": [
+              1080,
+              1440
+            ],
+            "binary": true
+          }
+        }
+      },
+      {
+        "image_name": "S40 (13)(1).tif",
+        "native_size": [
+          480,
+          640
+        ],
+        "annotation_foreground_pixels": 233196,
+        "transforms": {
+          "unet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "sbsnet": {
+            "size": [
+              256,
+              256
+            ],
+            "binary": true
+          },
+          "deeplabv3": {
+            "size": [
+              1024,
+              1024
+            ],
+            "binary": true
+          },
+          "sam": {
+            "size": [
+              480,
+              640
+            ],
+            "binary": true
+          }
+        }
+      }
+    ],
+    "model_forward_checks": {
+      "deeplabv3": {
+        "size": [
+          1,
+          2,
+          64,
+          64
+        ],
+        "finite": true,
+        "pretrained_downloads": false,
+        "checkpoint_inference": false,
+        "external_implementation_not_bundled": false
+      },
+      "fcn": {
+        "size": [
+          1,
+          1,
+          64,
+          64
+        ],
+        "finite": true,
+        "pretrained_downloads": false,
+        "checkpoint_inference": false,
+        "external_implementation_not_bundled": false
+      },
+      "sbsnet": {
+        "size": [
+          1,
+          2,
+          64,
+          64
+        ],
+        "finite": true,
+        "pretrained_downloads": false,
+        "checkpoint_inference": false,
+        "external_implementation_not_bundled": true
+      }
+    }
+  },
+  "geometry_script_check": {
+    "real_annotations_measured": 5,
+    "mode": "--test-five",
+    "export_consistency_checks_passed": true
+  },
+  "historical_report_verification": {
+    "tag_summary_byte_identical_to_previous": true,
+    "table_comparison": {
+      "table_csvs": 25,
+      "all_rows_and_nonnumeric_fields_match": true,
+      "byte_identical_csvs": 24,
+      "floating_point_text_differences": 139,
+      "max_absolute_difference": 7.275957614183426e-12,
+      "max_relative_difference": 1.1119666808275046e-15,
+      "note": "Same calculations; small summation differences between Python 3.11 and the earlier Python 3.14 report."
+    },
+    "figure_candidates_regenerated": 24,
+    "PNG_and_PDF_files": 48,
+    "input_source_hashes_unchanged": 155,
+    "representative_chart_visually_inspected": true
+  },
+  "public_export_check": {
+    "validation": {
+      "status": "passed",
+      "checked_utc": "2026-10-12T22:52:43.506941+00:00",
+      "public_python_files_compiled": 91,
+      "public_notebooks": 0,
+      "historical_sources_exported_and_import_checked": 38,
+      "original_notebook_sources": 35,
+      "configs_checked": 8,
+      "script_help_checked": 13,
+      "relative_document_links_checked": 21,
+      "source_files_accounted_for": 237,
+      "archive_files_verified": 0,
+      "original_files_verified": 0,
+      "functional_tests_are_separate": true
+    },
+    "public_files": 131,
+    "public_bytes": 1040681,
+    "archive_excluded": true,
+    "external_data_excluded": true
+  },
+  "unverified_integrations": [
+    "HQ-SAM complete package/checkpoint execution (optional package unavailable locally)",
+    "DeepLabV3+ SMP execution (optional package unavailable locally)",
+    "Full-size pretrained/checkpoint inference for all paper runs (weights not supplied in codes)",
+    "RobustSAM and SAMUS remain incomplete original attempts, fully converted to Python",
+    "Separate tiled-MedSAM code and historical DeepLab backbone/stride mapping remain unresolved"
+  ],
+  "preservation": {
+    "original_code_tree_unchanged": true,
+    "original_models_and_dataset_unchanged": true,
+    "subdivision_reference_repo_read_only": true,
+    "historical_csv_reproduction_claimed": false,
+    "training_on_real_paper_images_performed": false,
+    "Git_ignored_archive_and_outputs_excluded": true
+  },
+  "git": {
+    "remote_configured": false,
+    "staged_files": 0,
+    "commits_created": false,
+    "pushed": false
+  }
+}

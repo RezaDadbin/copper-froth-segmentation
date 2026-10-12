@@ -1,0 +1,31 @@
+{
+  "description": "Source-derived starting configuration for a NEW run; not a recovered CSV-producing run specification.",
+  "model": {
+    "name": "unet",
+    "pretrained": false
+  },
+  "data": {
+    "image_size": [
+      256,
+      256
+    ],
+    "normalize": false,
+    "center_crop": "legacy_unet"
+  },
+  "training": {
+    "epochs": 300,
+    "batch_size": 2,
+    "lr": 1e-05,
+    "optimizer": "adam",
+    "loss": "bce",
+    "weight_decay": 0.0,
+    "seed": 1337,
+    "num_workers": 0,
+    "accumulation_steps": 1,
+    "log_every": 25,
+    "selection_metric": "iou"
+  },
+  "inference": {
+    "threshold": 0.5
+  }
+}

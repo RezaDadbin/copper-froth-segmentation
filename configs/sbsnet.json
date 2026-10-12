@@ -1,0 +1,34 @@
+{
+  "description": "Source-derived starting configuration for a NEW run; not a recovered CSV-producing run specification.",
+  "model": {
+    "name": "sbsnet",
+    "pretrained": false,
+    "output_channels": 2,
+    "external_root": "",
+    "class_path": "net.sbsnet.SBSNet:SBSNet"
+  },
+  "data": {
+    "image_size": [
+      256,
+      256
+    ],
+    "normalize": false,
+    "center_crop": 1080
+  },
+  "training": {
+    "epochs": 50,
+    "batch_size": 2,
+    "lr": 0.0001,
+    "optimizer": "adam",
+    "loss": "bce",
+    "weight_decay": 0.0,
+    "seed": 1337,
+    "num_workers": 0,
+    "accumulation_steps": 1,
+    "log_every": 25,
+    "selection_metric": "iou"
+  },
+  "inference": {
+    "threshold": 0.5
+  }
+}

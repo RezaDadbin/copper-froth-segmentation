@@ -1,0 +1,41 @@
+{
+  "description": "Source-derived starting configuration for a NEW run; not a recovered CSV-producing run specification.",
+  "model": {
+    "name": "deeplabv3",
+    "pretrained": true
+  },
+  "data": {
+    "image_size": [
+      1024,
+      1024
+    ],
+    "normalize": true,
+    "center_crop": null,
+    "crop_size": 513,
+    "scale_range": [
+      0.7,
+      1.7
+    ],
+    "horizontal_flip_probability": 0.5
+  },
+  "training": {
+    "epochs": 100,
+    "batch_size": 4,
+    "lr": 0.01,
+    "optimizer": "sgd",
+    "loss": "cross_entropy",
+    "weight_decay": 0.0001,
+    "seed": 1337,
+    "num_workers": 0,
+    "accumulation_steps": 1,
+    "log_every": 25,
+    "selection_metric": "miou",
+    "poly_power": 0.9,
+    "gradient_clip": 1.0,
+    "class_weights": "estimate",
+    "early_stop_patience": 12
+  },
+  "inference": {
+    "threshold": 0.5
+  }
+}

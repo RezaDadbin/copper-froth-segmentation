@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "copper-froth-paper-code"
+version = "0.2.0"
+description = "Training, evaluation, statistics and figures for copper-froth segmentation research"
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements/base.txt"]}
+
+[tool.setuptools.packages.find]
+include = ["froth*"]
+
+[project.scripts]
+froth-train = "froth.cli:train_main"
+froth-predict = "froth.cli:predict_main"
+froth-evaluate = "froth.cli:evaluate_main"
+froth-render = "froth.cli:render_main"
+froth-postprocess = "froth.cli:postprocess_main"
+froth-motion = "froth.cli:motion_main"
+froth-pipeline = "froth.cli:pipeline_main"
