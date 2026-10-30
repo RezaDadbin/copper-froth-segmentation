@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+type: software
+title: "Copper froth segmentation"
+abstract: "Training, inference, post-processing and evaluation code for bubble segmentation in flotation-froth images, with the reproduction package of the accompanying review and comparative study."
+authors:
+  - family-names: "Dadbin"
+    given-names: "Reza"
+  - family-names: "Lotfi"
+    given-names: "Sina"
+  - family-names: "Sokhandan"
+    given-names: "Alireza"
+repository-code: "https://github.com/RezaDadbin/copper-froth-segmentation"
+license: MIT

@@ -1,0 +1,73 @@
+{
+ "structured_light_reflection": [
+  "F53 (7).tiff",
+  "F53 (11).tiff",
+  "B50 (4).tiff"
+ ],
+ "uneven_illumination": [
+  "p (137).tiff",
+  "S36 (48).tif",
+  "S36 (35).tif"
+ ],
+ "surface_artifacts_contaminants": [
+  "F61 (8).tiff",
+  "F53 (15).tiff",
+  "F61 (5).tiff"
+ ],
+ "polydispersity_multiscale_bubbles": [
+  "F61 (9).tiff",
+  "F61 (13).tiff",
+  "B50 (18).tiff"
+ ],
+ "dense_small_bubble_region": [
+  "p (503).tiff",
+  "p (100).tiff",
+  "p (121).tiff"
+ ],
+ "elongated_irregular_bubbles": [
+  "B50 (15).tiff",
+  "B50 (9).tiff",
+  "B50 (20).tiff"
+ ],
+ "poor_focus_defocus_blur": [
+  "B50 (13).tiff",
+  "F61 (16).tiff",
+  "B50 (6).tiff"
+ ],
+ "localized_motion_or_vibration_blur": [
+  "B50 (19).tiff",
+  "B50 (10).tiff",
+  "B50 (14).tiff"
+ ],
+ "collapsed": [
+  "F53 (14).tiff",
+  "F61 (18).tiff",
+  "B50 (8).tiff"
+ ],
+ "at_most_2_conditions": [
+  "F53 (96).tiff",
+  "F61 (46).tiff"
+ ],
+ "at_least_6_conditions": [
+  "B50 (52).tiff",
+  "B50 (70).tiff"
+ ],
+ "output_zip": [
+  "B50 (22).tiff",
+  "B50 (23).tiff",
+  "B50 (27).tiff",
+  "B50 (42).tiff",
+  "B50 (48).tiff",
+  "B50 (67).tiff",
+  "F53 (49).tiff",
+  "F61 (22).tiff",
+  "F61 (25).tiff",
+  "F61 (50).tiff",
+  "F61 (53).tiff",
+  "F61 (94).tiff",
+  "S32 (40).tif",
+  "S38 (27).tif",
+  "S40 (24).tif",
+  "S40 (25).tif"
+ ]
+}

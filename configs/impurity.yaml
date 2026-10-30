@@ -1,0 +1,25 @@
+# Dark-impurity detection on froth images (froth.impurity, scripts/detect_impurities.py).
+preprocess:
+  clahe:
+    enabled: true
+    clip_limit: 2.0
+    tile_grid_size: 8
+
+segment:
+  method: dynamic          # dynamic | otsu | fixed | adaptive; dynamic threshold t = mean - k * std
+  k_dynamic: 0.834
+  invert: true
+  morph_open_kernel: 2     # square opening kernel, pixels
+  morph_open_iterations: 1
+
+filter:
+  min_area_px: 5           # contour area range counted as an impurity
+  max_area_px: 11
+
+visualize:
+  overlay_color: [255, 0, 0]   # BGR (blue contours)
+  overlay_thickness: 1
+
+export:
+  save_mask: true
+  save_overlay: true

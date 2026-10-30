@@ -1,0 +1,574 @@
+{
+ "title": "Reproducible search protocol: flotation-froth bubble segmentation review",
+ "date_run": "2026-10-28",
+ "databases": {
+  "OpenAlex": "https://api.openalex.org/works?search=<query>&filter=publication_year:1995-2026&per-page=100 (OpenAlex \"search\" matches title, abstract and indexed full text; relevance-ranked)",
+  "Crossref": "https://api.crossref.org/works?query=<query>&filter=from-pub-date:1995&rows=100 (bibliographic relevance query; total-results counts every record matching any query term, so totals are not precision-meaningful)"
+ },
+ "queries": [
+  {
+   "database": "OpenAlex",
+   "query": "flotation froth image segmentation",
+   "request_url": "https://api.openalex.org/works?search=flotation+froth+image+segmentation&filter=publication_year%3A1995-2026&per-page=100&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Ctype%2Cprimary_location%2Copen_access%2Cabstract_inverted_index",
+   "total_hits_reported": 476,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "Crossref",
+   "query": "flotation froth image segmentation",
+   "request_url": "https://api.crossref.org/works?query=flotation+froth+image+segmentation&filter=from-pub-date%3A1995&rows=100&select=DOI%2Ctitle%2Cissued%2Ctype%2Ccontainer-title%2Cabstract",
+   "total_hits_reported": 1008223,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "OpenAlex",
+   "query": "flotation bubble segmentation",
+   "request_url": "https://api.openalex.org/works?search=flotation+bubble+segmentation&filter=publication_year%3A1995-2026&per-page=100&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Ctype%2Cprimary_location%2Copen_access%2Cabstract_inverted_index",
+   "total_hits_reported": 545,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "Crossref",
+   "query": "flotation bubble segmentation",
+   "request_url": "https://api.crossref.org/works?query=flotation+bubble+segmentation&filter=from-pub-date%3A1995&rows=100&select=DOI%2Ctitle%2Cissued%2Ctype%2Ccontainer-title%2Cabstract",
+   "total_hits_reported": 242743,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "OpenAlex",
+   "query": "froth bubble size distribution image",
+   "request_url": "https://api.openalex.org/works?search=froth+bubble+size+distribution+image&filter=publication_year%3A1995-2026&per-page=100&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Ctype%2Cprimary_location%2Copen_access%2Cabstract_inverted_index",
+   "total_hits_reported": 2888,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "Crossref",
+   "query": "froth bubble size distribution image",
+   "request_url": "https://api.crossref.org/works?query=froth+bubble+size+distribution+image&filter=from-pub-date%3A1995&rows=100&select=DOI%2Ctitle%2Cissued%2Ctype%2Ccontainer-title%2Cabstract",
+   "total_hits_reported": 1987641,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "OpenAlex",
+   "query": "flotation froth deep learning segmentation",
+   "request_url": "https://api.openalex.org/works?search=flotation+froth+deep+learning+segmentation&filter=publication_year%3A1995-2026&per-page=100&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Ctype%2Cprimary_location%2Copen_access%2Cabstract_inverted_index",
+   "total_hits_reported": 251,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "Crossref",
+   "query": "flotation froth deep learning segmentation",
+   "request_url": "https://api.crossref.org/works?query=flotation+froth+deep+learning+segmentation&filter=from-pub-date%3A1995&rows=100&select=DOI%2Ctitle%2Cissued%2Ctype%2Ccontainer-title%2Cabstract",
+   "total_hits_reported": 3141646,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "OpenAlex",
+   "query": "froth image watershed",
+   "request_url": "https://api.openalex.org/works?search=froth+image+watershed&filter=publication_year%3A1995-2026&per-page=100&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Ctype%2Cprimary_location%2Copen_access%2Cabstract_inverted_index",
+   "total_hits_reported": 594,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "Crossref",
+   "query": "froth image watershed",
+   "request_url": "https://api.crossref.org/works?query=froth+image+watershed&filter=from-pub-date%3A1995&rows=100&select=DOI%2Ctitle%2Cissued%2Ctype%2Ccontainer-title%2Cabstract",
+   "total_hits_reported": 901246,
+   "records_retrieved_for_screening": 100
+  },
+  {
+   "database": "OpenAlex",
+   "query": "flotation froth segment anything",
+   "request_url": "https://api.openalex.org/works?search=flotation+froth+segment+anything&filter=publication_year%3A1995-2026&per-page=100&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Ctype%2Cprimary_location%2Copen_access%2Cabstract_inverted_index",
+   "total_hits_reported": 40,
+   "records_retrieved_for_screening": 40
+  },
+  {
+   "database": "Crossref",
+   "query": "flotation froth segment anything",
+   "request_url": "https://api.crossref.org/works?query=flotation+froth+segment+anything&filter=from-pub-date%3A1995&rows=100&select=DOI%2Ctitle%2Cissued%2Ctype%2Ccontainer-title%2Cabstract",
+   "total_hits_reported": 88933,
+   "records_retrieved_for_screening": 100
+  }
+ ],
+ "screening_depth": "Top 100 relevance-ranked records per query per database were exported and screened (fewer when the database returned fewer). This exceeds the minimum of 50 per query.",
+ "inclusion_criteria": [
+  "(1) flotation froth (surface) images",
+  "(2) method delineates bubbles or measures bubble size/count from images (segmentation, edge detection, instance detection, size/count estimation)",
+  "(3) peer-reviewed journal/conference paper or thesis, 1995-2026, English or with English abstract"
+ ],
+ "exclusion_criteria": [
+  "pure froth classification / grade or condition prediction without bubble delineation",
+  "non-flotation bubbles or pulp-phase / bubble-column bubble imaging",
+  "duplicates",
+  "reviews, patents, abstract digests, book/encyclopedia entries, peer-review reports",
+  "bubble size used only as an input variable to control/process studies with no delineation method described or evaluated (operationalisation of criterion 2)"
+ ],
+ "prisma": {
+  "records_identified_database_searching": {
+   "OpenAlex": 540,
+   "Crossref": 600,
+   "total": 1140
+  },
+  "records_identified_other_sources": {
+   "existing_review_corpus_not_retrieved_by_searches": 11,
+   "supplementary_open_access_searches_and_citation_chasing": 8,
+   "total": 19,
+   "note": "existing corpus items not hit by the searches: Moolman1995, Lin2008, StoneThree2019 patent, three IEEE DataPort datasets, Barhoun2022, Namdari2022, Huang2023, Lu2024, Prokopov2024 Kaggle dataset. Supplementary items: daSilva2021 (UFOP), Wu2019 (CMC), EstradaRuiz2009 (JSAIMM), Popli2017 thesis, Zatonskiy2023 (SUSU), IEEE Access 2020 5G foam system, SSRN 2025 static foam U-Net/Hough, Wu et al. 2017 MTAP (citation)."
+  },
+  "duplicates_removed": 487,
+  "records_after_deduplication_database": 653,
+  "records_screened_title_abstract": 653,
+  "records_excluded_title_abstract": 545,
+  "excluded_by_reason": {
+   "R2_froth_image_but_no_bubble_delineation_or_size (classification/grade/velocity/enhancement/texture)": 88,
+   "R4_review_no_primary_method": 10,
+   "R3_ineligible_publication_type (patent, abstract digest, book chapter/encyclopedia entry, peer-review report, dictionary entry)": 24,
+   "R5_bubble_size_used_only_as_process_variable (control/monitoring/process study; no delineation method described or evaluated)": 15,
+   "R1b_non_froth_bubbles (pulp/collection-zone, bubble-column or bubble-viewer images)": 22,
+   "DUP_duplicate_version (preprint of an included study)": 1,
+   "UNCLEAR_insufficient_information (no abstract and no accessible full text)": 4,
+   "R1_not_flotation_froth_imaging (chemistry, hydrodynamics/CFD, pulp-phase physics, unrelated fields)": 381
+  },
+  "eligible_after_title_abstract_database": 108,
+  "of_which_already_in_studies_json": 47,
+  "of_which_not_in_studies_json": 61,
+  "full_text_sought_new_studies": {
+   "from_database_search": 16,
+   "from_supplementary": 7,
+   "total": 23,
+   "note": "sought = eligible new studies flagged open access by OpenAlex/publisher; database: 16,206,487,135,234,306,444,445 retrieved + 237,274,394,221,312,472,477,45 not retrieved (indices into the screened candidate list); supplementary: daSilva2021, Wu2019, EstradaRuiz2009, Popli2017, Zatonskiy2023 retrieved; IEEE Access 2020 5G and SSRN 2025 not retrieved"
+  },
+  "full_text_not_retrieved": {
+   "count": 10,
+   "reasons": {
+    "publisher/repository bot protection or login required (IEEE Xplore x2, E3S, SSRN x2, DOAJ, ScienceDirect, DBpia)": 8,
+    "repository truncates download (UCT theses Wright 1999, Forbes 2007)": 2
+   }
+  },
+  "full_text_assessed_new_studies": 13,
+  "full_text_excluded": {
+   "count": 3,
+   "reasons": {
+    "no delineation method or results reported (Zhou & Li 2016, Atlantis Press)": 1,
+    "bubble size only a process variable (Popli 2017 thesis; Zatonskiy et al. 2023)": 2
+   }
+  },
+  "new_studies_included_full_text": 10,
+  "studies_in_review_total": 68
+ },
+ "eligible_not_tabulated": [
+  {
+   "title": "A new approach for froth image segmentation using fuzzy logic",
+   "year": 2013,
+   "venue": "2013 First Iranian Conference on Pattern Recognition and Image Analysis (PRIA)",
+   "doi": "10.1109/pria.2013.6528459",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "A Precise Flotation Bubble Size Measurement Method Based on Boundary Probability Regression",
+   "year": 2025,
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "doi": "10.1109/tim.2025.3577370",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "A robust bubble delineation algorithm for froth images",
+   "year": 1999,
+   "venue": "International Conference on Intelligent Processing and Manufacturing of Materials (IPMM)",
+   "doi": "10.1109/ipmm.1999.792525",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "A Segmentation Algorithm of Copper-molybdenum Mine Flotation Froth Image",
+   "year": 2014,
+   "venue": "Computer Knowledge and Technology",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "A segmentation method based on boundary fracture correction for froth scale measurement",
+   "year": 2024,
+   "venue": "Applied Intelligence",
+   "doi": "10.1007/s10489-024-05552-5",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "A Segmentation Method Based on Clustering Pre-segmentation and High-low Scale Distance Reconstruction for Colour Froth Image",
+   "year": 2011,
+   "venue": "Journal of Electronics & Information Technology",
+   "doi": "10.3724/sp.j.1146.2006.01980",
+   "openalex_oa_status": "closed/unknown"
+  },
+  {
+   "title": "A technique for automatically segmenting images of the surface froth structures that are prevalent in industrial flotation cells",
+   "year": 2003,
+   "venue": "South African Symposium on Communications and Signal Processing (COMSIG)",
+   "doi": "10.1109/comsig.1992.274302",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "A watershed segmentation algorithm based on an optimal marker for bubble size measurement",
+   "year": 2019,
+   "venue": "Measurement",
+   "doi": "10.1016/j.measurement.2019.02.005",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Adaptive fuzzy local ternary pattern for mineral flotation froth image edge detection",
+   "year": 2018,
+   "venue": "IFAC-PapersOnLine",
+   "doi": "10.1016/j.ifacol.2018.09.424",
+   "openalex_oa_status": "closed/unknown"
+  },
+  {
+   "title": "An flotation froth image segmentation method utilizing improved watershed algorithm",
+   "year": 2012,
+   "venue": "Coal Preparation Technology",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "An Improved Method of Flotation Froth Image Segmentation Based on Watershed Transformation.",
+   "year": 2017,
+   "venue": "J. Inf. Hiding Multim. Signal Process.",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "An Optimal Fusion Marker-Based Watershed Segmentation Method For Bubble Metering",
+   "year": 2024,
+   "venue": "International Conference on Consumer Electronics and Computer Engineering (ICCECE)",
+   "doi": "10.1109/iccece61317.2024.10504171",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "An unsupervised method for flotation froth image segmentation evaluation base on image gray-level distribution",
+   "year": 2013,
+   "venue": null,
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Based on DCIWPSO in application of valley-edge detection froth image segmentation",
+   "year": 2010,
+   "venue": "Jisuanji yingyong yanjiu",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Bubble delineation on valley edge detection and region merge",
+   "year": 2013,
+   "venue": null,
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Bubble size estimation using interfacial morphological information for mineral flotation process monitoring",
+   "year": 2009,
+   "venue": "Transactions of Nonferrous Metals Society of China",
+   "doi": "10.1016/s1003-6326(08)60335-0",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Clustering-driven watershed adaptive segmentation of bubble image",
+   "year": 2010,
+   "venue": "Journal of Central South University of Technology",
+   "doi": "10.1007/s11771-010-0597-y",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Design and implementation of a froth size analysis system for mineral flotation based on DSP",
+   "year": 2013,
+   "venue": "Chinese Automation Congress",
+   "doi": "10.1109/cac.2013.6775771",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Feature extraction based on image segmentation of coal flotation froth",
+   "year": 2007,
+   "venue": "Meitan xuebao",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Floatation Froth Image Segmentation Algorithm Based on Mathematical Morphology and Wavelet",
+   "year": 2011,
+   "venue": "Communications in computer and information science",
+   "doi": "10.1007/978-3-642-24999-0_69",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Flotation bubble image segmentation based on seed region boundary growing",
+   "year": 2011,
+   "venue": "Mining Science and Technology (China)",
+   "doi": "10.1016/j.mstc.2011.02.013",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Flotation bubble seed image filling algorithm based on boundary point features",
+   "year": 2012,
+   "venue": "International Journal of Mining Science and Technology",
+   "doi": "10.1016/j.ijmst.2012.04.001",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Flotation froth image segmentation based on multiscale edge enhancement and adaptive valley detection",
+   "year": 2016,
+   "venue": "Optics and Precision Engineering",
+   "doi": "10.3788/ope.20162410.2589",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Flotation Froth Phase Bubble Size Measurement",
+   "year": 2020,
+   "venue": "Mineral Processing and Extractive Metallurgy Review",
+   "doi": "10.1080/08827508.2020.1854250",
+   "openalex_oa_status": "closed/unknown"
+  },
+  {
+   "title": "Flotation image segmentation by combining Fractional Differential, improved Level set and Watershed",
+   "year": 2016,
+   "venue": "DOAJ (DOAJ: Directory of Open Access Journals)",
+   "doi": null,
+   "openalex_oa_status": "green"
+  },
+  {
+   "title": "Froth image segmentation algorithms and their validation",
+   "year": 2002,
+   "venue": "International Conference on Signal Processing",
+   "doi": "10.1109/icosp.2000.893506",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Froth image segmentation based on adaptive ray cluster",
+   "year": 2010,
+   "venue": "IEEE International Conference on Networking, Sensing and Control (ICNSC)",
+   "doi": "10.1109/icnsc.2010.5461484",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Froth Image Segmentation of Coal flotation Using Weighted Fuzzy C-mean Clustering by Two-dimensional Histogram",
+   "year": 2013,
+   "venue": "International Journal of Advancements in Computing Technology",
+   "doi": "10.4156/ijact.vol5.issue7.147",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Froth morphological feature extraction based on improved FCM and mathematic morphology segmentation",
+   "year": 2010,
+   "venue": "Journal of Central South University(Science and Technology)",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Froth Segmentation Based on Convex Polygon for Froth Flotation Monitoring",
+   "year": 2024,
+   "venue": "Journal of Korea Multimedia Society",
+   "doi": "10.9717/kmms.2024.27.11.1238",
+   "openalex_oa_status": "diamond"
+  },
+  {
+   "title": "Image Segmentation Algorithm Based on Improved U-Net for Mineral Froth Flotation Process",
+   "year": 2024,
+   "venue": "Lecture notes in electrical engineering",
+   "doi": "10.1007/978-981-99-7545-7_10",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Improved Extracting Algorithm of Internal Markers for Froth Image Watershed Segmentation of Coal Flotation",
+   "year": 2016,
+   "venue": "International Journal of Simulation Systems Science & Technology",
+   "doi": "10.5013/ijssst.a.17.26.16",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Improved Extraction Algorithm of Outside Dividing Lines in Watershed Segmentation Based on PSO Algorithm for Froth Image of Coal Flotation",
+   "year": 2014,
+   "venue": "Journal of Multimedia",
+   "doi": "10.4304/jmm.9.2.325-332",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Methods and Algorithms for Segmentation of the Image in Control Flotation Process",
+   "year": 2018,
+   "venue": "International Russian Automation Conference (RusAutoCon)",
+   "doi": "10.1109/rusautocon.2018.8501678",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Online Monitoring of Flotation Froth Bubble-Size Distributions via Multiscale Deblurring and Multistage Jumping Feature-Fused Full Convolutional Networks",
+   "year": 2020,
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "doi": "10.1109/tim.2020.3006629",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Online Vision System and Measuring Parameters for Bubbles in Mineral Flotation",
+   "year": 2009,
+   "venue": "International Workshop on Intelligent Systems and Applications (ISA)",
+   "doi": "10.1109/iwisa.2009.5072987",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Pointbubble: Flotation Bubble Size Distribution Detection with Point-Guided Few-Shot Learning",
+   "year": 2025,
+   "venue": "SSRN Electronic Journal",
+   "doi": "10.2139/ssrn.5274512",
+   "openalex_oa_status": "green"
+  },
+  {
+   "title": "Pre-processing of Froth Image of Coal Flotation Based on Weighted Fuzzy C-Mean Clustering by One-Dimensional Histogram",
+   "year": 2012,
+   "venue": "International Conference on Computing, Measurement, Control and Sensor Network",
+   "doi": "10.1109/cmcsn.2012.97",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Research on segmentation of coal slurry Botation froth image",
+   "year": 2013,
+   "venue": "Mining & Processing Equipment",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Select flotation froth image structural element utilizing highlighting information",
+   "year": 2013,
+   "venue": null,
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Self-supervised Learning to Improve Froth Images Segmentation",
+   "year": 2024,
+   "venue": "Lecture notes in networks and systems",
+   "doi": "10.1007/978-981-97-5441-0_40",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Study of Edge Detection Methods on Flotation Froth Image",
+   "year": 2002,
+   "venue": "Journal of China University of Mining and Technology",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "The Algorithm of Estimating the Bubble Size Distribution Characteristics of the Froth Image",
+   "year": 2015,
+   "venue": "J. Inf. Hiding Multim. Signal Process.",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Use of reflection flare spots for automatic recognition of froth parameters in potassium ores flotation",
+   "year": 2016,
+   "venue": "Obogashchenie Rud",
+   "doi": "10.17580/or.2016.02.09",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "A density map regression method and its application in the coal flotation froth image analysis",
+   "year": 2022,
+   "venue": "Measurement",
+   "doi": "10.1016/j.measurement.2022.112212",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Calculation of the specific surface area of the froth in flotation",
+   "year": 2007,
+   "venue": "Meitan xuebao",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Flotation froth feature analysis using computer vision technology",
+   "year": 2020,
+   "venue": "E3S Web of Conferences",
+   "doi": "10.1051/e3sconf/202019202022",
+   "openalex_oa_status": "diamond"
+  },
+  {
+   "title": "Image processing-based monitoring of a batch flotation process",
+   "year": 2013,
+   "venue": null,
+   "doi": "10.1109/pria.2013.6528458",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Intelligent Detection Method for Froth Flotation Based on YOLOv5",
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "10.1109/access.2022.3221817",
+   "openalex_oa_status": "gold"
+  },
+  {
+   "title": "Modeling the Relationship between Froth Bubble Size and Flotation Performance Using Image Analysis and Neural Networks",
+   "year": 2014,
+   "venue": "Chemical Engineering Communications",
+   "doi": "10.1080/00986445.2014.886201",
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "Texture and Bubble Size Measurements for Modelling Concentrate Grade in Flotation Froth Systems",
+   "year": 2007,
+   "venue": "Open University of Cape Town (University of Cape Town)",
+   "doi": null,
+   "openalex_oa_status": "green"
+  },
+  {
+   "title": "The Development of a vision-based flotation froth analysis system",
+   "year": 1999,
+   "venue": "Open University of Cape Town (University of Cape Town)",
+   "doi": null,
+   "openalex_oa_status": "green"
+  },
+  {
+   "title": "Automatic control of flotation process using computer vision",
+   "year": 2015,
+   "venue": "Universiti Putra Malaysia Institutional Repository (Universiti Putra Malaysia)",
+   "doi": null,
+   "openalex_oa_status": "closed"
+  },
+  {
+   "title": "5G Industrial IoT and Edge Computing Based Coal Slime Flotation Foam Image Processing System",
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "10.1109/access.2020.3011904",
+   "openalex_oa_status": "gold"
+  },
+  {
+   "title": "Feature extraction of static foam images based on U-Net and Hough transform",
+   "year": 2025,
+   "venue": "SSRN Electronic Journal (preprint)",
+   "doi": "10.2139/ssrn.5984072",
+   "openalex_oa_status": "green"
+  },
+  {
+   "title": "Improved image segmentation method based on morphological reconstruction (Wu, Peng, Ruan, Hu)",
+   "year": 2017,
+   "venue": "Multimedia Tools and Applications 76(19):19781-19793",
+   "doi": null,
+   "openalex_oa_status": "not checked"
+  }
+ ],
+ "full_text_exclusions": [
+  {
+   "title": "Exploration on Mineral Flotation Bubble Velocity and Extraction Method of Size Distribution Feature",
+   "year": 2016,
+   "doi": "10.2991/mmeceb-15.2016.197",
+   "reason": "full text retrieved (Atlantis Press OA); EXCLUDED at full text: no delineation method or results reported"
+  },
+  {
+   "title": "Real-time Process Monitoring for Froth Flotation Processes using Image Processing and Dynamic Fundamental Models (PhD thesis, Popli K.)",
+   "year": 2017,
+   "doi": "10.7939/r3jh3dg68",
+   "reason": "full text read: bubble size taken from commercial VisioFroth (watershed) output and used as model input; no delineation method described or evaluated (R5)"
+  },
+  {
+   "title": "Development and tuning of algorithm for software identification of deviations in the potash flotation machine froth layer",
+   "year": 2023,
+   "doi": "10.14529/ctcr230104",
+   "reason": "full text read: glare-count signal used for dynamic process identification; no delineation/size method contribution or evaluation (R5)"
+  }
+ ]
+}

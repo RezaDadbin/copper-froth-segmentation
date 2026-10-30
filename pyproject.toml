@@ -3,9 +3,11 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "copper-froth-paper-code"
-version = "0.2.0"
-description = "Training, evaluation, statistics and figures for copper-froth segmentation research"
+name = "copper-froth-segmentation"
+version = "1.0.0"
+description = "Bubble segmentation in flotation-froth images: models, post-processing, evaluation and the paper reproduction package"
+readme = "README.md"
+license = {text = "MIT"}
 requires-python = ">=3.11"
 dynamic = ["dependencies"]
 
@@ -23,3 +25,15 @@ froth-render = "froth.cli:render_main"
 froth-postprocess = "froth.cli:postprocess_main"
 froth-motion = "froth.cli:motion_main"
 froth-pipeline = "froth.cli:pipeline_main"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["legacy", "local_archive", "results"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# research scripts kept close to the code that produced the paper: short names and small lambdas
+"paper/**" = ["E731", "E741"]

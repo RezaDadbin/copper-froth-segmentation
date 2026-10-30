@@ -1,0 +1,5 @@
+# CPU analysis, figures and tables of the paper (paper/evaluation, paper/figures)
+-r base.txt
+pandas
+scipy
+scikit-image

@@ -1,9 +1,0 @@
-# Template only: fill verified publication metadata, then rename to CITATION.cff.
-cff-version: 1.2.0
-message: "Please cite the associated dataset paper when using this research code."
-type: software
-title: "REPLACE WITH FINAL PAPER/CODE TITLE"
-authors:
-  - family-names: "REPLACE WITH AUTHOR FAMILY NAME"
-    given-names: "REPLACE WITH AUTHOR GIVEN NAME"
-# Add the actual repository URL, release version, release date and DOI when known.

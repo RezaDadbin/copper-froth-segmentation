@@ -1,142 +1,97 @@
-# Copper Froth Segmentation — Paper Code
+# Copper froth segmentation
 
-Python code for the planned data paper on annotated copper-froth images from
-Sungun. Training, prediction, evaluation, postprocessing, motion experiments and
-paper figures are organized as reusable modules and command-line scripts.
+Code for segmenting bubbles in flotation-froth images: training and inference for convolutional and SAM-family
+models, classical post-processing from froth masks to individual bubbles, froth motion analysis, dark-impurity
+detection, and the complete reproduction package of the paper
 
-The layout follows the local **Context-Aware Neural Subdivision** repository:
-explicit configs, separate implementation code, small scripts, documentation and
-tests. No notebook execution order is required by the maintained pipeline.
+> R. Dadbin, S. Lotfi, A. Sokhandan. *Deep segmentation of industrial copper flotation froth: a review of data,
+> models and processing pipelines, with a comparative study on Sungun plant images.*
 
-## Layout
+The froth images used in the paper are the property of the Sungun copper company and are not distributed. The code
+works with any froth image set annotated in [LabelMe](https://github.com/wkentaro/labelme) with the layout described
+in [data/README.md](data/README.md).
 
-```text
-configs/                  Eight source-derived model configurations (JSON)
-froth/
-  data/                   Manifest-driven TIFF/LabelMe loading and transforms
-  models/                 Original U-Net, CNN builders and SAM-family adapters
-  engine/                 Training, saved-mask prediction and evaluation
-  postprocessing/         ROI watershed and LoG/Voronoi kernels
-  motion/                 Block matching, optical flow, phase correlation, fusion
-  visualization/          Model panels, comparisons, curves and motion figures
-  reporting/              Tag summaries, annotation statistics and paper charts
-scripts/                  Linked command-line entry points
-legacy/                   All 35 notebooks + 3 original scripts exported to .py
-                          (including checkpoint variants and empty sources)
-tests/                    Geometry, metrics, models, pipeline and motion tests
-docs/                     Reproduction, changes, support and provenance
-requirements/             Shared and optional dependency groups
-local_archive/            Byte-exact original files; ignored by Git
-```
+## Contents
 
-The active repository contains **no `.ipynb` files**. Every original code file has
-an explicit mapping in [python_conversion.csv](docs/python_conversion.csv).
-Historical exports preserve alternate drivers, widget visualizations, Markdown
-and raw cells, while disabling IPython/package-install commands. They import
-without running experiments. Use `scripts/` for supported execution.
+| Path | Content |
+| --- | --- |
+| `froth/` | Python package: data loading, models, training, prediction, evaluation, post-processing, motion, impurities, reporting |
+| `scripts/` | Command-line entry points for the package |
+| `configs/` | Model and pipeline configurations |
+| `paper/` | Code behind every result, figure and table of the paper ([paper/README.md](paper/README.md)) |
+| `tests/` | Unit tests on synthetic data |
+| `docs/` | Commands, model support, known issues and provenance of the original notebooks |
+| `legacy/` | The original research notebooks exported to Python, kept for provenance |
 
-## Install and check
+## Installation
 
-Python 3.11 is the locally checked environment.
+Python 3.11 or later.
 
 ```bash
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
-python -m pip install -e . --no-deps
-python tools/validate_repository.py
-python -m unittest discover -s tests -v
+pip install -r requirements.txt
+pip install -e . --no-deps
 ```
 
-Install the optional [dependency groups](docs/environment.md) for DeepLabV3+,
-SAM/HQ-SAM or postprocessing/motion. Script `--help` works without ML libraries.
+Optional dependency groups are in `requirements/`: `cnn.txt` (DeepLabV3+), `sam.txt` (SAM family),
+`postprocessing_motion.txt` (post-processing, motion and impurity detection), `paper.txt` and `paper_gpu.txt`
+(reproduction of the paper).
 
-## Train → predict → evaluate → render
+## Usage
 
-From this repository, your current project inputs are `../Dataset` and `../tags.csv`.
-For another machine, replace those paths with the deposited dataset and manifest.
-The [data layout](data/README.md) specifies the paired image/JSON format.
+Train, predict, evaluate and render one model:
 
 ```bash
 python scripts/run_pipeline.py --config configs/unet.json \
-  --dataset-root ../Dataset --manifest ../tags.csv \
-  --output results/generated/unet --device auto
+  --dataset-root ../Dataset --manifest ../tags.csv --output outputs/unet --device auto
 ```
 
-The pipeline trains once, loads its best checkpoint, predicts the source `test`
-images, evaluates saved binary masks, and exports model figures. Add
-`--checkpoint /path/to/weights.pt` to skip training. Commands are also independent:
+The steps can also be run separately with `scripts/train.py`, `scripts/predict.py`, `scripts/evaluate.py` and
+`scripts/render_results.py`; add `--checkpoint path/to/weights.pt` to skip training. Further tools:
 
 ```bash
-python scripts/train.py --config configs/unet.json \
-  --dataset-root ../Dataset --manifest ../tags.csv --output results/generated/unet/training
-python scripts/predict.py --config configs/unet.json \
-  --checkpoint results/generated/unet/training/best.pt \
-  --dataset-root ../Dataset --manifest ../tags.csv --output results/generated/unet/predictions
-python scripts/evaluate.py --predictions results/generated/unet/predictions \
-  --dataset-root ../Dataset --manifest ../tags.csv --output results/generated/unet/evaluation
-python scripts/render_results.py --run U-Net=results/generated/unet/predictions \
-  --dataset-root ../Dataset --manifest ../tags.csv --output results/generated/unet/figures
+python scripts/postprocess.py --help          # ROI watershed and LoG-seeded Voronoi, from probability maps to bubbles
+python scripts/analyze_motion.py --help       # froth motion and stability from image pairs
+python scripts/register_frames.py f1.png f2.png   # multiscale phase-correlation registration with residuals
+python scripts/froth_stability.py f1.png f2.png   # fused local motion and tile-wise stability between two frames
+python scripts/detect_impurities.py --folder path/to/images --output outputs/impurities
+python scripts/dataset_statistics.py --help   # bubble size and shape statistics from the annotations
 ```
 
-For comparisons, repeat `--run LABEL=PATH`. Choose exact images with
-`--images 'B50 (1).tiff'`. Figures export to **PNG at 300 dpi and PDF**. Crops are
-marked in native-image comparisons; probabilities and binary masks are saved
-separately from display colormaps. See [all commands](docs/commands.md).
+See [docs/commands.md](docs/commands.md) for all commands and options.
 
 ## Models
 
-| Family | Maintained Python route | Configuration |
+| Model | Implementation | Configuration |
 | --- | --- | --- |
-| U-Net | Original architecture + shared trainer/inference | `configs/unet.json` |
-| SBSNet | Explicit external architecture adapter; two binary output channels | `configs/sbsnet.json` |
-| DeepLabV3 | torchvision ResNet50, matching supplied source | `configs/deeplabv3.json` |
-| DeepLabV3+ | SMP ResNet50, matching supplied source | `configs/deeplabv3plus.json` |
-| SAM | Fine-tuning modes, box inference, original AMG | `configs/sam.json` |
-| HQ-SAM | Fine-tuning, intermediate-feature decoder, point-grid proposals | `configs/hq_sam.json` |
-| MedSAM | Decoder training and explicitly declared box prompts | `configs/medsam.json` |
-| FCN | Exploratory ResNet50 binary segmentation | `configs/fcn.json` |
-| RobustSAM / SAMUS | Complete source conversion; original attempts remain incomplete | `legacy/`; `scripts/inspect_external.py` |
+| U-Net | `froth/models/unet.py` | `configs/unet.json` |
+| SBSNet | Adapter for the authors' implementation (not redistributed; set `--external-root`) | `configs/sbsnet.json` |
+| DeepLabV3, DeepLabV3+ | torchvision, segmentation-models-pytorch | `configs/deeplabv3.json`, `configs/deeplabv3plus.json` |
+| SAM, HQ-SAM, MedSAM | Official registries; decoder fine-tuning, box prompts, automatic mask generation | `configs/sam.json`, `configs/hq_sam.json`, `configs/medsam.json` |
+| FCN | torchvision | `configs/fcn.json` |
 
-Base checkpoints and external implementations are not bundled. SBSNet requires
-`--external-root /path/to/SBSNet-pytorch`; SAM-family models require a matching
-base checkpoint. Prompted SAM inference requires `--prompt-source full_image` or
-`ground_truth`. The latter is marked as annotation-assisted in saved metadata.
-[Model support](docs/model_support.md) explains these requirements and the missing
-separate tiled-MedSAM implementation.
+The exact model variants of the paper (DeepLabV3 ResNet-101, DeepLabV3+ ResNet-152 at output stride 8, and the
+zero-shot SAM ViT-H, HQ-SAM ViT-H, SAM 2.1, RobustSAM and Cellpose-SAM) are run by `paper/inference`.
+[docs/model_support.md](docs/model_support.md) describes the requirements of each model.
 
-## Statistics and paper figures
-
-The existing statistical and evaluation programs are integrated as Python modules:
+## Reproducing the paper
 
 ```bash
-python scripts/dataset_statistics.py --dataset-root ../Dataset --tags ../tags.csv \
-  --output-dir results/generated/statistics
-python scripts/summarize_tags.py --project-root .. --output-dir results/generated/tag_analysis
-python scripts/make_paper_figures.py --project-root .. --output-dir results/generated/paper_figures
+bash paper/inference/setup_gpu.sh && bash paper/inference/run_inference.sh   # GPU
+python -m paper.evaluation.metrics && python -m paper.evaluation.analysis      # CPU
 ```
 
-The first command computes per-annotation and per-image geometry from JSONs with
-progress monitoring. Add `--test-five` to measure exactly five real annotations.
-The latter commands read the existing project CSVs; they do not train models.
-Paper charts include the original Section 5/6 figures and all 14 tag-group charts.
-Their input layout is documented in [commands](docs/commands.md).
+[paper/README.md](paper/README.md) lists every step and maps each figure and table to the command that produces it.
 
-## Reproduction scope
+## Tests
 
-This is a **refactored implementation for new runs**, not evidence that the saved
-historical CSVs were regenerated. [Changes](docs/changes.md) records loader,
-threshold, protocol and postprocessing corrections. The original 237 source
-files remain unchanged and are preserved byte-for-byte in the local archive.
+```bash
+python -m unittest discover -s tests -v
+python tools/validate_repository.py
+```
 
-The manifest has 595 images: 485 training and 110 **reused validation** images.
-The latter were used for selection/tuning and reporting. Historical DeepLab CSV
-names differ from the supplied ResNet50 code; RobustSAM identity and tiled-MedSAM
-run provenance remain unresolved. Different evaluated grids also limit direct
-comparison of the historical distance metrics. See [reproduction notes](docs/reproduction.md).
+## Citation and license
 
-Author/title/DOI metadata and the project license still need their final release
-values; [citation template](CITATION.cff.example) and [model references](docs/references.md)
-are retained. Dataset files, model checkpoints, generated results and the local
-source archive are excluded from this code repository. Dot-prefixed files and
-folders are also excluded from the published tree.
+Please cite the paper above when using this code; [CITATION.cff](CITATION.cff) gives the citation metadata.
+The code is released under the [MIT License](LICENSE).

@@ -1,5 +1,6 @@
 # Reproduction and verification
 
+The reproduction of the paper is documented in [paper/README.md](../paper/README.md).
 The maintained workflow is documented in [commands](commands.md), and the code
 changes in [changes](changes.md). All original source variants are Python exports
 under `legacy/`, with exact mappings and hashes in `python_conversion.csv`.

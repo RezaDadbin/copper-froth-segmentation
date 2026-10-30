@@ -1,0 +1,8 @@
+# GPU inference of the paper (paper/inference); SAM 2 is installed by paper/inference/setup_gpu.sh
+-r paper.txt
+segment-anything @ git+https://github.com/facebookresearch/segment-anything.git
+segment-anything-hq
+segmentation-models-pytorch
+timm
+huggingface_hub
+cellpose
