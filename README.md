@@ -2,7 +2,7 @@
 
 Code for segmenting bubbles in flotation-froth images: training and inference for convolutional and SAM-family
 models, classical post-processing from froth masks to individual bubbles, froth motion analysis, dark-impurity
-detection, and the complete reproduction package of the paper
+detection, and the code behind the results of our paper (in preparation):
 
 > R. Dadbin, S. Lotfi, A. Sokhandan. *Deep segmentation of industrial copper flotation froth: a review of data,
 > models and processing pipelines, with a comparative study on Sungun plant images.*
@@ -91,7 +91,6 @@ python -m unittest discover -s tests -v
 python tools/validate_repository.py
 ```
 
-## Citation and license
+## License
 
-Please cite the paper above when using this code; [CITATION.cff](CITATION.cff) gives the citation metadata.
-The code is released under the [MIT License](LICENSE).
+[MIT](LICENSE)

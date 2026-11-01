@@ -1,6 +1,6 @@
 # Reproducing the paper
 
-This folder contains the code behind every result, figure and table of
+This folder contains the code behind every result, figure and table of our paper (in preparation):
 
 > R. Dadbin, S. Lotfi, A. Sokhandan. *Deep segmentation of industrial copper flotation froth: a review of data,
 > models and processing pipelines, with a comparative study on Sungun plant images.*
