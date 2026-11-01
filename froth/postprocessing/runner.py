@@ -15,7 +15,7 @@ from .thresholds import dynamic_threshold
 
 
 def scale_priors(reference_run, k_factor=0.736):
-    """Fit LoG size priors to an explicitly supplied training prediction run."""
+    """Fit LoG size priors on a prediction run over training images."""
     _, records = load_run(reference_run)
     if any(row["source_split"] != "train" for row in records):
         raise ValueError("Scale priors must be fitted on training predictions only")

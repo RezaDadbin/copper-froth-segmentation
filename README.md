@@ -9,19 +9,18 @@ detection, and the code behind the results of our paper (in preparation):
 
 The froth images used in the paper are the property of the Sungun copper company and are not distributed. The code
 works with any froth image set annotated in [LabelMe](https://github.com/wkentaro/labelme) with the layout described
-in [data/README.md](data/README.md).
+in [docs/data_format.md](docs/data_format.md).
 
 ## Contents
 
 | Path | Content |
 | --- | --- |
-| `froth/` | Python package: data loading, models, training, prediction, evaluation, post-processing, motion, impurities, reporting |
+| `froth/` | Python package: data loading, models, training, prediction, evaluation, post-processing, motion, impurities, annotation statistics |
 | `scripts/` | Command-line entry points for the package |
 | `configs/` | Model and pipeline configurations |
 | `paper/` | Code behind every result, figure and table of the paper ([paper/README.md](paper/README.md)) |
 | `tests/` | Unit tests on synthetic data |
-| `docs/` | Commands, model support, known issues and provenance of the original notebooks |
-| `legacy/` | The original research notebooks exported to Python, kept for provenance |
+| `docs/` | [Commands](docs/commands.md) and [data format](docs/data_format.md) |
 
 ## Installation
 
@@ -51,12 +50,12 @@ The steps can also be run separately with `scripts/train.py`, `scripts/predict.p
 `scripts/render_results.py`; add `--checkpoint path/to/weights.pt` to skip training. Further tools:
 
 ```bash
-python scripts/postprocess.py --help          # ROI watershed and LoG-seeded Voronoi, from probability maps to bubbles
-python scripts/analyze_motion.py --help       # froth motion and stability from image pairs
-python scripts/register_frames.py f1.png f2.png   # multiscale phase-correlation registration with residuals
-python scripts/froth_stability.py f1.png f2.png   # fused local motion and tile-wise stability between two frames
+python scripts/postprocess.py --help            # ROI watershed and LoG-seeded Voronoi: from probability maps to bubbles
+python scripts/analyze_motion.py --help         # froth motion between two frames
+python scripts/register_frames.py f1.png f2.png # multiscale phase-correlation registration with residuals
+python scripts/froth_stability.py f1.png f2.png # fused local motion and tile-wise stability
 python scripts/detect_impurities.py --folder path/to/images --output outputs/impurities
-python scripts/dataset_statistics.py --help   # bubble size and shape statistics from the annotations
+python scripts/dataset_statistics.py --help     # bubble size and shape statistics from the annotations
 ```
 
 See [docs/commands.md](docs/commands.md) for all commands and options.
@@ -73,7 +72,7 @@ See [docs/commands.md](docs/commands.md) for all commands and options.
 
 The exact model variants of the paper (DeepLabV3 ResNet-101, DeepLabV3+ ResNet-152 at output stride 8, and the
 zero-shot SAM ViT-H, HQ-SAM ViT-H, SAM 2.1, RobustSAM and Cellpose-SAM) are run by `paper/inference`.
-[docs/model_support.md](docs/model_support.md) describes the requirements of each model.
+SAM-family models need their public base weights, passed with `--base-checkpoint`; no weights are included.
 
 ## Reproducing the paper
 
@@ -88,7 +87,6 @@ python -m paper.evaluation.metrics && python -m paper.evaluation.analysis      #
 
 ```bash
 python -m unittest discover -s tests -v
-python tools/validate_repository.py
 ```
 
 ## License

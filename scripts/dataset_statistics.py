@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Paper reporting entry point with explicit inputs and output directory."""
+"""Bubble count, size and shape statistics from LabelMe annotations."""
 
 import _bootstrap  # noqa: F401
 from froth.reporting.dataset_statistics import main

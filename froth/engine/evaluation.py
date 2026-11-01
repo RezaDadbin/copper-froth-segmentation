@@ -68,7 +68,6 @@ def evaluate(predictions, dataset_root, manifest, output, *, distances=True):
         "prediction_run": str(predictions.resolve()), "prediction_run_sha256": sha256(predictions / "run.json"),
         "images": len(rows), "aggregation": "unweighted per-image macro means within source split",
         "distance_units": "evaluation_grid_pixels", "ground_truth_assisted": metadata["ground_truth_assisted"],
-        "source_test_role": metadata["source_test_role"],
         "empty_mask_policy": "IoU/Dice=1 when both empty; undefined precision/recall and one-empty HD/HD95 are blank",
         "HD95_policy": "95th percentile of pooled bidirectional foreground-boundary nearest distances",
         "inputs_unchanged": True})

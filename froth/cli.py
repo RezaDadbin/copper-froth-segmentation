@@ -165,23 +165,3 @@ def pipeline_main(argv=None):
     evaluate(predictions, args.dataset_root, args.manifest, args.output / "evaluation")
     render_results({config["model"]["name"]: predictions}, args.dataset_root, args.manifest,
                    args.output / "figures", limit=min(5, args.limit or 5))
-
-
-def external_main(argv=None):
-    parser = argparse.ArgumentParser(description="Inspect the external-code/checkpoint inputs of incomplete RobustSAM/SAMUS attempts.")
-    parser.add_argument("--model", choices=("robustsam", "samus"), required=True)
-    parser.add_argument("--repository", type=Path, required=True)
-    parser.add_argument("--checkpoint", type=Path)
-    args = parser.parse_args(argv)
-    if not args.repository.is_dir():
-        parser.error("External repository directory does not exist")
-    root = args.repository.resolve()
-    package = "robust_segment_anything" if args.model == "robustsam" else "models"
-    if not (root / package).is_dir():
-        parser.error(f"Expected {package}/ in the selected external repository")
-    print(f"External source: {root}\nPython source files: {len(list((root/package).rglob('*.py')))}")
-    if args.checkpoint:
-        from .models.factory import load_checkpoint
-        state = load_checkpoint(args.checkpoint)
-        print(f"Checkpoint top-level keys: {list(state)[:15]}")
-    print("The supplied notebooks contain setup/inference attempts, not a complete verified training pipeline. See docs/model_support.md.")

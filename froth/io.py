@@ -59,5 +59,4 @@ def provenance(config, manifest, **extra):
             "python": platform.python_version(), "packages": packages,
             "config": config, "manifest_sha256": sha256(manifest),
             "implementation_sha256": code_hashes, "external_implementation_sha256": external_hashes,
-            "source_test_role": "validation_used_for_selection_and_reporting",
-            "historical_csv_reproduction_claimed": False, **extra}
+            **extra}

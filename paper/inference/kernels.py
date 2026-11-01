@@ -17,7 +17,7 @@ from froth.postprocessing.log_voronoi import (
 )
 from froth.postprocessing.thresholds import dynamic_threshold
 
-RW.print = lambda *a, **k: None  # silence the historical per-image print
+RW.print = lambda *a, **k: None  # silence the per-image progress print
 SEMANTIC = ["dlv3", "dlv3p", "sam_ft", "hq_ft", "medsam_ft", "medsam_ft_fix", "sam_zs", "robust_zs"]
 
 
@@ -80,7 +80,7 @@ def log_voronoi_staged(prob, scales, k_factor=0.736, keep_stages=False):
 
 
 def scale_priors(probs, k_factor=0.736):
-    """Historical compute_percentiles_for_scales(), applied to one model's own probability maps (no labels used)."""
+    """Bubble-size percentiles (compute_percentiles_for_scales), applied to one model's own probability maps (no labels used)."""
     areas = []
     for p in probs:
         raw = np.rint(p * 255).astype(np.uint8)

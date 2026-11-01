@@ -72,7 +72,7 @@ python -m paper.figures.data_tables --measurements <froth_measurements.csv>   # 
 python -m paper.figures.review_tables          # Tables S6, S7
 ```
 
-`froth_measurements.csv` is written by `scripts/dataset_statistics.py`. Figures 1 and 4 are drawn in LaTeX; the
+`froth_measurements.csv` is written by `python scripts/dataset_statistics.py --dataset-root ../Dataset --tags ../tags.csv --output-dir outputs/statistics`. Figures 1 and 4 are drawn in LaTeX; the
 counts of Figure 1 are in `review/search.json`.
 
 | Paper item | Produced by | Output |

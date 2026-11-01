@@ -4,7 +4,7 @@
     "name": "hq_sam",
     "pretrained": false,
     "variant": "vit_b",
-    "base_checkpoint": "weights/sam_hq_vit_b.pth"
+    "base_checkpoint": null
   },
   "data": {
     "image_size": null,

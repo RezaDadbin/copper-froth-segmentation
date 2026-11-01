@@ -29,14 +29,14 @@ def load_config(path):
 def validate_config(config):
     name = config["model"]["name"]
     if name not in MODELS:
-        raise ValueError(f"Unsupported maintained model {name!r}; see docs/model_support.md")
+        raise ValueError(f"Unsupported model {name!r}; choose one of {sorted(MODELS)}")
     data, train = config["data"], config["training"]
     size = data.get("image_size")
     if name not in SAM_MODELS:
         if not isinstance(size, list) or len(size) != 2 or min(size) <= 0:
             raise ValueError("data.image_size must be [height, width] in positive pixels")
         if name == "unet" and any(int(x) % 32 for x in size):
-            raise ValueError("The supplied U-Net requires image dimensions divisible by 32")
+            raise ValueError("U-Net requires image dimensions divisible by 32")
     if train["epochs"] < 1 or train["batch_size"] < 1 or train["lr"] <= 0:
         raise ValueError("epochs, batch_size and learning rate must be positive")
     if not 0 < config["inference"].get("threshold", 0.5) < 1:

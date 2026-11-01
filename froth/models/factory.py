@@ -62,7 +62,7 @@ def build_model(config, pretrained=None):
     elif name == "sbsnet":
         root = spec.get("external_root")
         if not root or not Path(root).is_dir():
-            raise RuntimeError("Set model.external_root to the SBSNet-pytorch folder containing net/. See docs/model_support.md.")
+            raise RuntimeError("Set model.external_root to the SBSNet-pytorch folder containing net/.")
         sys.path.insert(0, str(Path(root).resolve()))
         module_name, class_name = spec.get("class_path", "net.sbsnet.SBSNet:SBSNet").split(":")
         model = getattr(importlib.import_module(module_name), class_name)(num_classes=spec.get("output_channels", 2))
@@ -78,7 +78,7 @@ def build_model(config, pretrained=None):
         model = registry[spec.get("variant", "vit_b")](checkpoint=None)
         load_model_weights(model, base)
     else:
-        raise ValueError(f"No maintained builder for {name!r}")
+        raise ValueError(f"No builder for {name!r}")
     return model
 
 
@@ -106,7 +106,6 @@ def logits_from_output(output):
 def foreground_probability(logits, loss_name):
     if loss_name == "cross_entropy":
         return logits.softmax(dim=1)[:, 1]
-    # The historical SBSNet notebook supervises two identical binary channels.
-    # Averaging their probabilities is explicit here rather than pretending that
-    # those channels were trained as mutually exclusive background/foreground.
+    # SBSNet is trained with two identical binary target channels, so their
+    # probabilities are averaged rather than treated as background/foreground.
     return logits.sigmoid().mean(dim=1)

@@ -1,4 +1,4 @@
-"""Bound the historical dynamic threshold for numeric probability maps."""
+"""Dynamic threshold (mean minus k standard deviations), bounded to the probability range."""
 
 import numpy as np
 

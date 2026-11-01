@@ -1,8 +1,4 @@
-"""ROI watershed extracted from POST/froth-postprocess/segmentation_post_process.py.
-
-Numeric processing is separated from the former unconditional plotting. Defaults
-retain the source algorithm; k_factor is explicit. See docs/changes.md.
-"""
+"""ROI watershed: splits a froth probability map into individual bubbles."""
 
 import cv2
 import numpy as np

@@ -1,4 +1,4 @@
 -r base.txt
 segmentation-models-pytorch
 timm
-# The original SBSNet architecture module must be supplied separately.
+# SBSNet itself is not included; see the README.

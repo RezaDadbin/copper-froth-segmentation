@@ -1,4 +1,4 @@
-# Import-derived dependencies; not a recovered training environment lock.
+# Core dependencies: training, prediction, evaluation and rendering.
 numpy
 Pillow
 opencv-python

@@ -18,7 +18,6 @@ import sys
 import time
 
 
-PROJECT = Path(__file__).resolve().parents[2] / "data"
 VERSION = "1.0"
 METRIC_FIELDS = [
     "area_px2", "area_pct_image", "equivalent_diameter_px", "perimeter_px",
@@ -496,9 +495,9 @@ def validate_exports(output, images, objects, summaries, distributions, test_fiv
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--tags", type=Path, default=PROJECT / "tags.csv")
-    parser.add_argument("--dataset-root", type=Path, default=PROJECT / "Dataset")
-    parser.add_argument("--output-dir", type=Path, default=Path(__file__).resolve().parents[2] / "results/generated/statistics")
+    parser.add_argument("--tags", type=Path, required=True, help="tags.csv manifest")
+    parser.add_argument("--dataset-root", type=Path, required=True, help="Folder with train1/ and test1/")
+    parser.add_argument("--output-dir", type=Path, default=Path(__file__).resolve().parents[2] / "outputs/statistics")
     parser.add_argument("--test-five", action="store_true", help="Measure exactly five real shapes; save in test_5_froths/.")
     args = parser.parse_args()
     try:

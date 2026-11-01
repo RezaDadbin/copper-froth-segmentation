@@ -1,4 +1,4 @@
-"""Explicit two-frame displacement estimators derived from the motion notebooks."""
+"""Two-frame displacement estimators."""
 
 from __future__ import annotations
 
@@ -47,10 +47,10 @@ def optical_flow(first, second):
 
 
 def block_matching(first, second, block_size=64, search_range=16, texture_threshold=8, method="ncc"):
-    """NCC from the fusion source or corrected signed-SAD from block matching.ipynb.
+    """Block matching by normalised cross-correlation (NCC) or signed sum of absolute differences (SAD).
 
     Rows contain center x/y, dx/dy in pixels, and match confidence. SAD is slower
-    because it preserves the notebook's exhaustive search.
+    because it uses an exhaustive search.
     """
     validate_frames(first, second)
     if block_size < 2 or search_range < 0 or block_size > min(first.shape):
@@ -83,7 +83,7 @@ def block_matching(first, second, block_size=64, search_range=16, texture_thresh
 
 
 def motion_fusion(first, second, tile_size=64, step=32):
-    """Notebook OF/phase/NCC confidence fusion with normalized sparse smoothing."""
+    """Confidence-weighted fusion of optical flow, phase correlation and NCC, with normalised sparse smoothing."""
     validate_frames(first, second)
     if tile_size < 4 or tile_size > min(first.shape) or step < 1:
         raise ValueError("Invalid fusion tile/step size")
@@ -119,8 +119,8 @@ def motion_fusion(first, second, tile_size=64, step=32):
                 dx, dy = np.average(values[:, :2], axis=0, weights=values[:, 2])
                 rows.append((cx, cy, dx, dy, float(values[:, 2].mean())))
     result = np.asarray(rows, np.float32).reshape(-1, 5)
-    # Sparse fields must be normalized by their support; Gaussian-blurring
-    # inserted zeros alone attenuated the historical displacement magnitudes.
+    # Normalise the smoothed sparse field by its support, so that the empty
+    # cells do not shrink the displacements.
     support = np.zeros(first.shape, np.float32)
     u, v = support.copy(), support.copy()
     for x, y, dx, dy, _ in result:

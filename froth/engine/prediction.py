@@ -36,7 +36,7 @@ def predict(config, dataset_root, manifest, output, checkpoint=None, *, split="t
     family = config["model"]["name"]
     sam = family in SAM_MODELS
     if mode == "amg" and family not in {"sam", "hq_sam"}:
-        raise ValueError("AMG mode is supported by the supplied SAM and HQ-SAM source only")
+        raise ValueError("AMG mode is supported by SAM and HQ-SAM only")
     if sam and mode == "semantic" and prompt_source not in {"full_image", "ground_truth"}:
         raise ValueError("Set --prompt-source full_image or ground_truth explicitly for prompted SAM evaluation")
     if not checkpoint and not (sam and use_base_weights):

@@ -1,3 +1,3 @@
-"""Copper-froth paper code. Heavy model dependencies are loaded on demand."""
+"""Bubble segmentation and analysis of flotation-froth images. Model dependencies are loaded on demand."""
 
-__version__ = "0.2.0"
+__version__ = "1.0.0"

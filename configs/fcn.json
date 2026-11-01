@@ -10,7 +10,7 @@
       256
     ],
     "normalize": false,
-    "center_crop": "legacy_unet"
+    "center_crop": "adaptive"
   },
   "training": {
     "epochs": 50,

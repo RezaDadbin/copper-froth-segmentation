@@ -94,7 +94,7 @@ def transform_pair(image, mask, data_config):
     crop = data_config.get("center_crop")
     box = (0, 0, width, height)
     if crop:
-        size = (1080 if height > 480 else 480) if crop == "legacy_unet" else int(crop)
+        size = (1080 if height > 480 else 480) if crop == "adaptive" else int(crop)
         left, top = int(round((width - size) / 2)), int(round((height - size) / 2))
         box = (left, top, left + size, top + size)
         # PIL pads requested crop coordinates outside an image with zero.

@@ -71,9 +71,9 @@ def prompted_logits(model, image, mask, family, prompt_source):
 
 @torch.no_grad()
 def automatic_proposals(model, image, family, settings):
-    """Original SAM AMG or the notebook's HQ point-grid plus mask-IoU NMS."""
+    """SAM automatic mask generation, or HQ-SAM point-grid proposals with mask-IoU NMS."""
     if family == "medsam":
-        raise ValueError("MedSAM automatic/tiled inference was not implemented in the supplied source")
+        raise ValueError("MedSAM supports box-prompt inference only")
     if family == "sam":
         from segment_anything import SamAutomaticMaskGenerator
         keys = ("points_per_side", "pred_iou_thresh", "stability_score_thresh",
